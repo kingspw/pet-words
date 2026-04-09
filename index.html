@@ -162,6 +162,12 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle
 .combo{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-size:40px;font-weight:900;background:linear-gradient(135deg,#ff6b6b,#feca57,#00cec9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;pointer-events:none;animation:comboIn .7s ease forwards;z-index:200}
 @keyframes comboIn{0%{opacity:0;transform:translate(-50%,-50%) scale(.5)}30%{opacity:1;transform:translate(-50%,-50%) scale(1.2)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.4)}}
 
+/* Star feedback effect */
+.star-feedback{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-size:80px;pointer-events:none;z-index:300;animation:starPulse 2s ease forwards;filter:drop-shadow(0 0 20px currentColor)}
+.star-feedback.star-ok{color:#FDCB6E;text-shadow:0 0 30px rgba(253,203,110,.8),0 0 60px rgba(253,203,110,.4)}
+.star-feedback.star-no{color:#FF6B6B;text-shadow:0 0 30px rgba(255,107,107,.8),0 0 60px rgba(255,107,107,.4)}
+@keyframes starPulse{0%{opacity:0;transform:translate(-50%,-50%) scale(.3) rotate(-30deg)}15%{opacity:1;transform:translate(-50%,-50%) scale(1.3) rotate(10deg)}30%{transform:translate(-50%,-50%) scale(1) rotate(0deg)}45%{transform:translate(-50%,-50%) scale(1.2) rotate(-5deg)}60%{transform:translate(-50%,-50%) scale(1) rotate(3deg)}75%{transform:translate(-50%,-50%) scale(1.1) rotate(0deg);opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1.4) rotate(0deg)}}
+
 /* ===== RESPONSIVE ===== */
 @media(max-width:400px){
   .q-card .q-word,.flashcard .fc-word{font-size:26px}
@@ -1306,6 +1312,7 @@ function answerQuiz(btn, correct, en, cn) {
 
   if (correct) {
     btn.classList.add('ok');
+    showStar(true);
     qzState.streak++;
     if (qzState.streak > qzState.maxStreak) qzState.maxStreak = qzState.streak;
     qzState.correct++;
@@ -1318,9 +1325,10 @@ function answerQuiz(btn, correct, en, cn) {
     document.getElementById('qz-score').textContent = qzState.score;
     if (qzState.streak >= 5 && qzState.streak % 5 === 0) showCombo('🔥 x' + qzState.streak);
     save();
-    setTimeout(() => { qzState.index++; showQuizQ(); }, 1000);
+    setTimeout(() => { qzState.index++; showQuizQ(); }, 2000);
   } else {
     btn.classList.add('no');
+    showStar(false);
     qzState.streak = 0;
     qzState.lives--;
     document.getElementById('qz-lives').textContent = qzState.lives;
@@ -1334,7 +1342,7 @@ function answerQuiz(btn, correct, en, cn) {
     });
     document.getElementById('qz-fb').innerHTML = `<div class="fb fbno">❌ 正确：${w.en} — ${w.cn}</div><div class="fb-ex" style="color:var(--t2);font-size:12px;margin-top:4px">${w.ex || ''}</div>`;
     save();
-    setTimeout(() => { qzState.index++; showQuizQ(); }, 2200);
+    setTimeout(() => { qzState.index++; showQuizQ(); }, 2500);
   }
 }
 
@@ -1594,6 +1602,14 @@ function showCombo(text) {
   div.textContent = text;
   document.body.appendChild(div);
   setTimeout(() => div.remove(), 800);
+}
+
+function showStar(isCorrect) {
+  const star = document.createElement('div');
+  star.className = 'star-feedback ' + (isCorrect ? 'star-ok' : 'star-no');
+  star.textContent = '★';
+  document.body.appendChild(star);
+  setTimeout(() => star.remove(), 2000);
 }
 
 // ============================================================

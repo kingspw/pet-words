@@ -16,7 +16,7 @@ const MIME = {
 };
 
 http.createServer((req, res) => {
-  let filePath = path.join(DIR, req.url === '/' ? 'pet-words-game.html' : req.url);
+  let filePath = path.join(DIR, req.url === '/' ? 'index.html' : req.url);
   const ext = path.extname(filePath);
   const contentType = MIME[ext] || 'text/plain';
 

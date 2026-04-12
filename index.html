@@ -163,59 +163,43 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle
 @keyframes comboIn{0%{opacity:0;transform:translate(-50%,-50%) scale(.5)}30%{opacity:1;transform:translate(-50%,-50%) scale(1.2)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.4)}}
 
 /* ===== Demon Slayer character effects ===== */
-.ds-char{position:fixed;top:50%;pointer-events:none;z-index:300;display:flex;align-items:center;gap:8px}
+.ds-char{position:fixed;top:50%;pointer-events:none;z-index:300;display:flex;align-items:center;gap:12px}
 .ds-char *{pointer-events:none}
+.ds-char svg{filter:drop-shadow(0 4px 12px rgba(0,0,0,.5))}
+.ds-text{font-size:20px;font-weight:900;white-space:nowrap;animation:textPop .3s ease .7s both;letter-spacing:2px}
 
 /* Tanjiro — left to right */
-.ds-tanjiro{left:-200px;animation:tanjiroFly 2s ease-in-out forwards}
-.tanjiro-body{position:relative;width:80px;height:110px}
-.tanjiro-head{width:44px;height:44px;background:radial-gradient(circle at 60% 40%,#fdd,#f5c6a8);border-radius:50%;position:absolute;top:0;left:18px;z-index:2;border:2px solid #c9967a;overflow:hidden}
-.tanjiro-head::before{content:'';position:absolute;top:0;left:0;right:0;height:22px;background:linear-gradient(180deg,#2a1a0e 60%,#3d2415);border-radius:22px 22px 0 0}
-.tanjiro-head::after{content:'';position:absolute;top:6px;left:5px;width:8px;height:12px;background:#8b1a1a;border-radius:0 0 4px 4px;box-shadow:1px 0 0 #6b0f0f}
-.tanjiro-eyes{position:absolute;top:22px;left:12px;width:20px;height:6px;display:flex;gap:6px}
-.tanjiro-eyes::before,.tanjiro-eyes::after{content:'';width:7px;height:7px;background:#8b2252;border-radius:50%}
-.tanjiro-haori{position:absolute;top:38px;left:4px;width:72px;height:52px;border-radius:6px 6px 10px 10px;overflow:hidden;background:repeating-conic-gradient(#2d5a3d 0% 25%,#1a1a1a 0% 50%) 0 0/16px 16px}
-.tanjiro-earring{position:absolute;top:32px;left:16px;width:6px;height:14px;background:linear-gradient(180deg,#d4af37,#c0392b);border-radius:3px}
-.tanjiro-slash{position:absolute;right:-60px;top:10px;font-size:70px;color:rgba(100,180,255,.9);text-shadow:0 0 20px rgba(100,180,255,.6),0 0 40px rgba(100,180,255,.3);animation:slashFlash .4s ease .6s both}
-.tanjiro-text{font-size:18px;font-weight:900;color:#64b5f6;text-shadow:0 0 15px rgba(100,180,255,.8);white-space:nowrap;animation:textPop .3s ease .8s both}
+.ds-tanjiro{left:-280px;animation:tanjiroFly 2.2s ease-in-out forwards}
+.ds-tanjiro .ds-text{color:#64b5f6;text-shadow:0 0 15px rgba(100,180,255,.8),0 0 30px rgba(100,180,255,.4)}
+.ds-tanjiro svg{animation:tanjiroSlash .6s ease .4s both}
+.water-fx{animation:waterGlow 1s ease .3s infinite alternate}
 @keyframes tanjiroFly{
-  0%{left:-200px;top:50%;transform:translateY(-50%) scale(.8);opacity:0}
-  15%{opacity:1;transform:translateY(-50%) scale(1)}
-  40%{left:calc(50% - 80px);top:50%;transform:translateY(-50%) scale(1.1)}
-  60%{left:calc(50% - 60px);transform:translateY(-50%) scale(1)}
-  85%{opacity:1;left:calc(50% - 40px);transform:translateY(-50%) scale(1)}
-  100%{left:110%;transform:translateY(-50%) scale(.9);opacity:0}
+  0%{left:-280px;top:50%;transform:translateY(-50%) scale(.7);opacity:0}
+  12%{opacity:1;transform:translateY(-50%) scale(1)}
+  35%{left:calc(50% - 120px);top:50%;transform:translateY(-50%) scale(1.05)}
+  55%{left:calc(50% - 100px);transform:translateY(-50%) scale(1)}
+  80%{opacity:1;left:calc(50% - 90px);transform:translateY(-50%) scale(1)}
+  100%{left:110%;transform:translateY(-50%) scale(.8);opacity:0}
 }
-@keyframes slashFlash{0%{opacity:0;transform:rotate(-30deg) scale(.5)}50%{opacity:1;transform:rotate(0deg) scale(1.2)}100%{opacity:.8;transform:rotate(10deg) scale(1)}}
-@keyframes textPop{0%{opacity:0;transform:scale(.5)}100%{opacity:1;transform:scale(1)}}
+@keyframes tanjiroSlash{0%{transform:rotate(-15deg)}50%{transform:rotate(8deg)}100%{transform:rotate(0deg)}}
+@keyframes waterGlow{0%{opacity:.5}100%{opacity:1}}
+@keyframes textPop{0%{opacity:0;transform:scale(.5) translateY(10px)}100%{opacity:1;transform:scale(1) translateY(0)}}
 
 /* Akaza — right to left */
-.ds-akaza{right:-200px;animation:akazaFly 2.2s ease-in-out forwards}
-.akaza-body{position:relative;width:80px;height:110px}
-.akaza-head{width:46px;height:46px;background:radial-gradient(circle at 50% 45%,#fdd,#e8c4b8);border-radius:50%;position:absolute;top:0;left:17px;z-index:2;border:2px solid #d4a0a0;overflow:hidden}
-.akaza-head::before{content:'';position:absolute;top:0;left:0;right:0;height:18px;background:linear-gradient(180deg,#ff69b4 40%,#ff85c8);border-radius:22px 22px 0 0}
-.akaza-head::after{content:'';position:absolute;top:8px;left:4px;right:4px;height:12px;background:transparent;border-top:2px solid rgba(70,130,180,.6);border-radius:0}
-.akaza-lines{position:absolute;top:10px;left:6px;right:6px;height:30px}
-.akaza-lines::before{content:'';position:absolute;width:100%;height:100%;background:repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(70,130,180,.25) 4px,rgba(70,130,180,.25) 5px)}
-.akaza-eyes{position:absolute;top:22px;left:11px;width:24px;height:8px;display:flex;gap:6px}
-.akaza-eyes::before,.akaza-eyes::after{content:'';width:8px;height:8px;background:radial-gradient(circle,#ffd700 30%,#ff4500 70%);border-radius:50%;border:1px solid #ff4500}
-.akaza-torso{position:absolute;top:40px;left:6px;width:68px;height:50px;background:linear-gradient(180deg,#1a0a2e,#2d1b4e);border-radius:6px 6px 10px 10px;overflow:hidden}
-.akaza-torso::before{content:'';position:absolute;inset:4px;border:2px solid rgba(70,130,180,.3);border-radius:4px;background:repeating-linear-gradient(90deg,transparent,transparent 8px,rgba(100,180,255,.08) 8px,rgba(100,180,255,.08) 9px)}
-.akaza-fist{position:absolute;left:-50px;top:20px;animation:punchSwing .3s ease .5s both}
-.akaza-fist-inner{width:36px;height:36px;background:radial-gradient(circle at 50% 50%,#fdd,#e8c4b8);border-radius:50% 50% 50% 20%;border:2px solid #d4a0a0;box-shadow:0 0 20px rgba(255,100,50,.6),0 0 40px rgba(255,50,0,.3)}
-.akaza-fist-inner::after{content:'';position:absolute;inset:3px;border:1.5px solid rgba(70,130,180,.4);border-radius:inherit}
-.akaza-aura{position:absolute;left:-65px;top:5px;width:60px;height:60px;background:radial-gradient(circle,rgba(255,50,0,.4),transparent 70%);border-radius:50%;animation:auraPulse .4s ease .5s both}
-.akaza-text{font-size:18px;font-weight:900;color:#ff6b6b;text-shadow:0 0 15px rgba(255,80,80,.8);white-space:nowrap;animation:textPop .3s ease .7s both}
+.ds-akaza{right:-280px;animation:akazaFly 2.4s ease-in-out forwards}
+.ds-akaza .ds-text{color:#ff6b6b;text-shadow:0 0 15px rgba(255,80,80,.8),0 0 30px rgba(255,50,50,.4)}
+.ds-akaza svg{animation:akazaPunch .4s ease .4s both}
+.akaza-aura-fx{animation:auraPulse .6s ease .4s both}
 @keyframes akazaFly{
-  0%{right:-200px;top:50%;transform:translateY(-50%) scale(.8);opacity:0}
-  15%{opacity:1;transform:translateY(-50%) scale(1)}
-  35%{right:calc(50% - 80px);top:50%;transform:translateY(-50%) scale(1.1)}
-  55%{right:calc(50% - 60px);transform:translateY(-50%) scale(1)}
-  80%{opacity:1;right:calc(50% - 40px);transform:translateY(-50%) scale(1)}
-  100%{right:110%;transform:translateY(-50%) scale(.9);opacity:0}
+  0%{right:-280px;top:50%;transform:translateY(-50%) scale(.7);opacity:0}
+  12%{opacity:1;transform:translateY(-50%) scale(1)}
+  30%{right:calc(50% - 120px);top:50%;transform:translateY(-50%) scale(1.05)}
+  50%{right:calc(50% - 100px);transform:translateY(-50%) scale(1)}
+  78%{opacity:1;right:calc(50% - 90px);transform:translateY(-50%) scale(1)}
+  100%{right:110%;transform:translateY(-50%) scale(.8);opacity:0}
 }
-@keyframes punchSwing{0%{transform:translateX(30px) rotate(20deg)}60%{transform:translateX(-10px) rotate(-10deg)}100%{transform:translateX(0) rotate(0deg)}}
-@keyframes auraPulse{0%{transform:scale(0);opacity:0}50%{transform:scale(1.5);opacity:1}100%{transform:scale(2);opacity:0}}
+@keyframes akazaPunch{0%{transform:translateX(15px) rotate(5deg)}40%{transform:translateX(-8px) rotate(-3deg)}100%{transform:translateX(0) rotate(0)}}
+@keyframes auraPulse{0%{opacity:0;r:0}50%{opacity:.6;r:40}100%{opacity:0;r:60}}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:400px){
@@ -1656,29 +1640,167 @@ function showCombo(text) {
 function showStar(isCorrect) {
   const el = document.createElement('div');
   if (isCorrect) {
-    // Tanjiro flies left to right with water breathing slash
     el.className = 'ds-char ds-tanjiro';
     el.innerHTML = `
-      <div class="tanjiro-body">
-        <div class="tanjiro-head"><div class="tanjiro-eyes"></div></div>
-        <div class="tanjiro-earring"></div>
-        <div class="tanjiro-haori"></div>
-        <div class="tanjiro-slash">⚔</div>
-      </div>
-      <div class="tanjiro-text">全集中・水之呼吸！</div>`;
+      <svg width="160" height="180" viewBox="0 0 160 180">
+        <!-- Water breathing effects behind -->
+        <g class="water-fx">
+          <path d="M90,40 Q130,60 140,100 Q145,130 120,160" fill="none" stroke="rgba(100,180,255,.5)" stroke-width="8" stroke-linecap="round"/>
+          <path d="M95,30 Q140,50 150,95 Q155,135 125,170" fill="none" stroke="rgba(100,200,255,.3)" stroke-width="12" stroke-linecap="round"/>
+          <path d="M85,50 Q120,70 130,105 Q135,140 110,165" fill="none" stroke="rgba(130,200,255,.4)" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="135" cy="75" r="4" fill="rgba(180,220,255,.6)"/>
+          <circle cx="145" cy="110" r="3" fill="rgba(180,220,255,.5)"/>
+          <circle cx="125" cy="145" r="5" fill="rgba(180,220,255,.4)"/>
+        </g>
+        <!-- Head -->
+        <ellipse cx="52" cy="28" rx="20" ry="22" fill="#f5cba7"/>
+        <!-- Hair -->
+        <path d="M32,22 Q35,2 52,4 Q69,2 72,22 L70,18 Q65,8 52,7 Q39,8 34,18Z" fill="#2c1810"/>
+        <path d="M34,18 Q38,10 46,12 L42,22Z" fill="#2c1810"/>
+        <path d="M58,12 Q66,10 70,18 L62,22Z" fill="#2c1810"/>
+        <path d="M32,22 L36,30 L33,28Z" fill="#2c1810"/>
+        <path d="M72,22 L68,30 L71,28Z" fill="#2c1810"/>
+        <!-- Scar on forehead -->
+        <path d="M38,16 Q42,12 44,18" fill="none" stroke="#8b1a1a" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="41" cy="15" r="2" fill="#8b1a1a" opacity=".6"/>
+        <!-- Eyes -->
+        <ellipse cx="43" cy="28" rx="4" ry="4.5" fill="#fff"/>
+        <ellipse cx="61" cy="28" rx="4" ry="4.5" fill="#fff"/>
+        <ellipse cx="44" cy="28" rx="2.5" ry="3" fill="#6b2252"/>
+        <ellipse cx="62" cy="28" rx="2.5" ry="3" fill="#6b2252"/>
+        <ellipse cx="44.5" cy="27.5" rx="1" ry="1.2" fill="#1a0a15"/>
+        <ellipse cx="62.5" cy="27.5" rx="1" ry="1.2" fill="#1a0a15"/>
+        <!-- Eyebrows -->
+        <path d="M38,22 Q43,20 48,22" fill="none" stroke="#2c1810" stroke-width="1.8"/>
+        <path d="M56,22 Q61,20 66,22" fill="none" stroke="#2c1810" stroke-width="1.8"/>
+        <!-- Mouth — determined -->
+        <path d="M47,36 Q52,38 57,36" fill="none" stroke="#a0522d" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Earrings (hanafuda) -->
+        <line x1="33" y1="35" x2="33" y2="46" stroke="#d4af37" stroke-width="1"/>
+        <rect x="29" y="46" width="8" height="11" rx="2" fill="#f5f5dc" stroke="#d4af37" stroke-width=".8"/>
+        <circle cx="33" cy="50" r="2.5" fill="none" stroke="#c0392b" stroke-width="1"/>
+        <line x1="33" y1="50" x2="33" y2="55" stroke="#c0392b" stroke-width=".8"/>
+        <!-- Neck -->
+        <rect x="46" y="46" width="12" height="8" rx="3" fill="#f5cba7"/>
+        <!-- Haori (green-black checkered) body -->
+        <path d="M28,54 L22,64 L18,100 L28,110 L38,108 L42,80 L52,110 L62,110 L66,80 L70,108 L80,110 L86,100 L82,64 L76,54Z" fill="#1a1a1a"/>
+        <!-- Checkered pattern -->
+        <rect x="24" y="58" width="10" height="10" fill="#2d6b4a" opacity=".9"/>
+        <rect x="34" y="68" width="10" height="10" fill="#2d6b4a" opacity=".9"/>
+        <rect x="24" y="78" width="10" height="10" fill="#2d6b4a" opacity=".9"/>
+        <rect x="34" y="88" width="10" height="10" fill="#2d6b4a" opacity=".9"/>
+        <rect x="24" y="98" width="8" height="8" fill="#2d6b4a" opacity=".9"/>
+        <rect x="60" y="58" width="10" height="10" fill="#2d6b4a" opacity=".9"/>
+        <rect x="50" y="68" width="10" height="10" fill="#2d6b4a" opacity=".9"/>
+        <rect x="60" y="78" width="10" height="10" fill="#2d6b4a" opacity=".9"/>
+        <rect x="50" y="88" width="10" height="10" fill="#2d6b4a" opacity=".9"/>
+        <rect x="62" y="98" width="8" height="8" fill="#2d6b4a" opacity=".9"/>
+        <rect x="34" y="58" width="10" height="10" fill="#2d6b4a" opacity=".0"/>
+        <rect x="50" y="58" width="10" height="10" fill="#2d6b4a" opacity=".0"/>
+        <!-- Belt -->
+        <rect x="30" y="82" width="44" height="5" rx="2" fill="#4a3728"/>
+        <!-- Arms holding sword — slashing pose -->
+        <path d="M22,64 L8,78 L6,90 L10,92 L16,82 L24,75Z" fill="#f5cba7"/>
+        <path d="M82,64 L96,72 L108,66 L106,62 L96,68 L82,60Z" fill="#f5cba7"/>
+        <!-- Sword -->
+        <line x1="105" y1="64" x2="148" y2="22" stroke="#3a3a3a" stroke-width="2"/>
+        <line x1="105" y1="64" x2="148" y2="22" stroke="rgba(200,220,240,.6)" stroke-width="5" stroke-linecap="round"/>
+        <rect x="101" y="62" width="10" height="4" rx="1" fill="#d4af37" transform="rotate(-40,106,64)"/>
+        <!-- Legs -->
+        <path d="M38,108 L34,140 L30,155 L38,156 L42,142Z" fill="#1a1a1a"/>
+        <path d="M62,108 L66,140 L70,155 L62,156 L58,142Z" fill="#1a1a1a"/>
+        <!-- Feet with waraji -->
+        <ellipse cx="34" cy="157" rx="7" ry="3" fill="#8b6914"/>
+        <ellipse cx="66" cy="157" rx="7" ry="3" fill="#8b6914"/>
+        <!-- Sword glow -->
+        <line x1="108" y1="62" x2="150" y2="18" stroke="rgba(100,180,255,.7)" stroke-width="8" stroke-linecap="round" opacity=".5"/>
+      </svg>
+      <div class="ds-text">全集中・水之呼吸！</div>`;
   } else {
-    // Akaza flies right to left with a punch
     el.className = 'ds-char ds-akaza';
     el.innerHTML = `
-      <div class="akaza-text">破壊殺・乱式！</div>
-      <div class="akaza-body">
-        <div class="akaza-head"><div class="akaza-lines"></div><div class="akaza-eyes"></div></div>
-        <div class="akaza-torso"></div>
-        <div class="akaza-fist"><div class="akaza-aura"></div><div class="akaza-fist-inner"></div></div>
-      </div>`;
+      <div class="ds-text">破壊殺・乱式！</div>
+      <svg width="170" height="180" viewBox="0 0 170 180">
+        <!-- Aura behind -->
+        <circle class="akaza-aura-fx" cx="85" cy="90" r="30" fill="none" stroke="rgba(255,50,50,.4)" stroke-width="3"/>
+        <circle class="akaza-aura-fx" cx="85" cy="90" r="20" fill="rgba(255,80,50,.08)"/>
+        <!-- Head -->
+        <ellipse cx="85" cy="30" rx="22" ry="24" fill="#f0c8b0"/>
+        <!-- Hair — short pink/magenta spiky -->
+        <path d="M63,24 Q65,2 85,4 Q105,2 107,24 L105,16 Q100,6 85,5 Q70,6 65,16Z" fill="#e84393"/>
+        <path d="M65,16 L62,10 L68,14Z" fill="#e84393"/>
+        <path d="M75,8 L73,2 L78,7Z" fill="#e84393"/>
+        <path d="M85,5 L85,0 L88,6Z" fill="#e84393"/>
+        <path d="M95,8 L97,2 L92,7Z" fill="#e84393"/>
+        <path d="M105,16 L108,10 L102,14Z" fill="#e84393"/>
+        <!-- Face blue line tattoos -->
+        <path d="M68,18 L68,40" fill="none" stroke="rgba(70,130,200,.55)" stroke-width="1.8"/>
+        <path d="M102,18 L102,40" fill="none" stroke="rgba(70,130,200,.55)" stroke-width="1.8"/>
+        <path d="M73,42 Q85,48 97,42" fill="none" stroke="rgba(70,130,200,.45)" stroke-width="1.5"/>
+        <circle cx="85" cy="14" r="3" fill="none" stroke="rgba(70,130,200,.5)" stroke-width="1.2"/>
+        <!-- Eyes — golden/orange, fierce -->
+        <ellipse cx="76" cy="28" rx="5" ry="5" fill="#fff"/>
+        <ellipse cx="94" cy="28" rx="5" ry="5" fill="#fff"/>
+        <ellipse cx="77" cy="28" rx="3.5" ry="4" fill="url(#akazaEye)"/>
+        <ellipse cx="95" cy="28" rx="3.5" ry="4" fill="url(#akazaEye)"/>
+        <ellipse cx="77.5" cy="27" rx="1.5" ry="2" fill="#1a0500"/>
+        <ellipse cx="95.5" cy="27" rx="1.5" ry="2" fill="#1a0500"/>
+        <defs>
+          <radialGradient id="akazaEye"><stop offset="20%" stop-color="#ffd700"/><stop offset="100%" stop-color="#ff4500"/></radialGradient>
+        </defs>
+        <!-- Angry eyebrows -->
+        <path d="M68,20 L72,22 L80,21" fill="none" stroke="#5a1a1a" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M102,20 L98,22 L90,21" fill="none" stroke="#5a1a1a" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Mouth — fierce grin -->
+        <path d="M77,38 Q85,42 93,38" fill="none" stroke="#8b3a3a" stroke-width="2" stroke-linecap="round"/>
+        <path d="M79,38 L81,40 M89,38 L91,40" fill="none" stroke="#fff" stroke-width="1" opacity=".6"/>
+        <!-- Neck -->
+        <rect x="79" y="50" width="12" height="10" rx="3" fill="#f0c8b0"/>
+        <!-- Torso — muscular, shirtless with blue line tattoos -->
+        <path d="M58,60 L52,70 L50,100 L60,110 L80,112 L90,112 L110,110 L120,100 L118,70 L112,60Z" fill="#f0c8b0"/>
+        <!-- Chest muscles -->
+        <path d="M68,68 Q78,72 85,68 Q92,72 102,68" fill="none" stroke="rgba(180,140,120,.4)" stroke-width="1.5"/>
+        <path d="M72,72 Q78,80 85,75 Q92,80 98,72" fill="none" stroke="rgba(180,140,120,.3)" stroke-width="1"/>
+        <!-- Abs -->
+        <line x1="85" y1="78" x2="85" y2="105" stroke="rgba(180,140,120,.3)" stroke-width="1"/>
+        <path d="M75,85 Q85,83 95,85" fill="none" stroke="rgba(180,140,120,.25)" stroke-width="1"/>
+        <path d="M76,93 Q85,91 94,93" fill="none" stroke="rgba(180,140,120,.25)" stroke-width="1"/>
+        <!-- Blue line body tattoos -->
+        <path d="M62,65 L58,95" fill="none" stroke="rgba(70,130,200,.45)" stroke-width="2"/>
+        <path d="M108,65 L112,95" fill="none" stroke="rgba(70,130,200,.45)" stroke-width="2"/>
+        <path d="M68,60 Q85,55 102,60" fill="none" stroke="rgba(70,130,200,.4)" stroke-width="1.5"/>
+        <circle cx="85" cy="72" r="8" fill="none" stroke="rgba(70,130,200,.35)" stroke-width="1.5"/>
+        <path d="M65,80 L60,90" fill="none" stroke="rgba(70,130,200,.35)" stroke-width="1.5"/>
+        <path d="M105,80 L110,90" fill="none" stroke="rgba(70,130,200,.35)" stroke-width="1.5"/>
+        <!-- Belt / waistband -->
+        <rect x="58" y="106" width="54" height="6" rx="2" fill="#2a1a3e"/>
+        <!-- Punching arm (left arm forward) -->
+        <path d="M52,70 L28,68 L10,72 L8,78 L12,80 L30,74 L50,76Z" fill="#f0c8b0"/>
+        <!-- Fist -->
+        <ellipse cx="10" cy="75" rx="10" ry="9" fill="#f0c8b0" stroke="rgba(70,130,200,.4)" stroke-width="1.5"/>
+        <path d="M3,72 L5,70 M7,69 L9,67 M11,69 L13,67" fill="none" stroke="rgba(200,160,140,.5)" stroke-width="1"/>
+        <!-- Blue tattoo on arm -->
+        <path d="M48,72 L25,71" fill="none" stroke="rgba(70,130,200,.4)" stroke-width="1.5"/>
+        <!-- Fist energy burst -->
+        <circle cx="8" cy="75" r="14" fill="rgba(255,80,50,.15)" stroke="rgba(255,80,50,.4)" stroke-width="2"/>
+        <circle cx="6" cy="75" r="22" fill="none" stroke="rgba(255,50,30,.2)" stroke-width="1.5"/>
+        <path d="M-8,70 L-2,74 M-6,80 L0,77 M-4,68 L2,72" fill="none" stroke="rgba(255,120,50,.5)" stroke-width="2" stroke-linecap="round"/>
+        <!-- Right arm back -->
+        <path d="M118,70 L132,82 L138,96 L134,98 L128,86 L116,78Z" fill="#f0c8b0"/>
+        <path d="M120,74 L130,84" fill="none" stroke="rgba(70,130,200,.35)" stroke-width="1.5"/>
+        <!-- Pants -->
+        <path d="M62,112 L56,148 L52,160 L62,162 L68,148 L78,112Z" fill="#2a1a3e"/>
+        <path d="M92,112 L86,148 L82,160 L92,162 L98,148 L108,112Z" fill="#2a1a3e"/>
+        <!-- Pants stripes -->
+        <path d="M60,120 L56,150" fill="none" stroke="rgba(70,130,200,.25)" stroke-width="1.5"/>
+        <path d="M100,120 L96,150" fill="none" stroke="rgba(70,130,200,.25)" stroke-width="1.5"/>
+        <!-- Feet -->
+        <ellipse cx="57" cy="162" rx="8" ry="3.5" fill="#1a1a2e"/>
+        <ellipse cx="87" cy="162" rx="8" ry="3.5" fill="#1a1a2e"/>
+      </svg>`;
   }
   document.body.appendChild(el);
-  setTimeout(() => el.remove(), isCorrect ? 2000 : 2200);
+  setTimeout(() => el.remove(), isCorrect ? 2200 : 2400);
 }
 
 // ============================================================
